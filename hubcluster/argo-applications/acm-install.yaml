@@ -1,6 +1,6 @@
 ---
 apiVersion: argoproj.io/v1alpha1
-kind: Application
+kind: ApplicationSet
 metadata:
   name: acm-install
   namespace: openshift-gitops
@@ -10,17 +10,21 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  destination:
-    server: https://kubernetes.default.svc
-  project: default
-  source:
-    path: hubcluster/acm/install
-    repoURL: "https://github.com/Vikaspogu/acm-demo.git"
-    targetRevision: "main"
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-      - ApplyOutOfSyncOnly=true
-      - PrunePropagationPolicy=foreground
+  generators:
+    - git:
+        repoURL: https://github.com/Vikaspogu/acm-demo.git
+        revision: main
+        directories:
+          - path: hubcluster/acm/
+  template:
+    metadata:
+      name: 'acm-{{path.basename}}'
+    spec:
+      destination:
+        server: "https://kubernetes.default.svc"
+      project: default
+      syncPolicy: {}
+      source:
+        path: "{{path}}"
+        repoURL: "https://github.com/Vikaspogu/acm-demo.git"
+        targetRevision: "main"
