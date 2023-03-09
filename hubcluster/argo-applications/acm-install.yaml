@@ -16,7 +16,7 @@ spec:
   source:
     path: hubcluster/acm/install
     repoURL: "https://github.com/Vikaspogu/acm-demo.git"
-    targetRevision: "master"
+    targetRevision: "main"
   syncPolicy:
     automated:
       prune: true

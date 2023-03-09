@@ -16,7 +16,7 @@ spec:
               requeueAfterSeconds: 3600
           - git:
               repoURL: https://github.com/Vikaspogu/acm-demo.git
-              revision: master
+              revision: main
               directories:
                 - path: managedclusters/lab/common/*
   template:
@@ -33,4 +33,4 @@ spec:
       source:
         path: "{{path}}"
         repoURL: "https://github.com/Vikaspogu/acm-demo.git"
-        targetRevision: "master"
+        targetRevision: "main"

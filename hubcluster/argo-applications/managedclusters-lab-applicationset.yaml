@@ -13,7 +13,7 @@ spec:
   generators:
     - git:
         repoURL: https://github.com/Vikaspogu/acm-demo.git
-        revision: master
+        revision: main
         directories:
           - path: managedclusters/argo-applications/lab/
   template:
@@ -29,4 +29,4 @@ spec:
       source:
         path: "{{path}}"
         repoURL: "https://github.com/Vikaspogu/acm-demo.git"
-        targetRevision: "master"
+        targetRevision: "main"

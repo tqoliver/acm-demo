@@ -9,10 +9,15 @@ With the 2.3 version of Advanced Cluster Management, a new `gitopscluster` resou
 ### Terminologies
 
 **ManagedCluster:** ManagedCluster defines the state of the cluster
+
 **ManagedClusterSet:** A ManagedClusterSet is a group of managed clusters. A managed cluster cannot exist in more than one ManagedClusterSet
-**ManagedClusterSetBinding:** A ManagedClusterSetBinding resource binds a ManagedClusterSet resource to a namespace.
-**Placement:** Defines a rule to select a set of ManagedClusters from the ManagedClusterSets, bound to the placement namespace.
+
+**ManagedClusterSetBinding:** A ManagedClusterSetBinding resource binds a ManagedClusterSet resource to a namespace
+
+**Placement:** Defines a rule to select a set of ManagedClusters from the ManagedClusterSets, bound to the placement namespace
+
 **GitOpsCluster:** Provides integration with ArgoCD and PlacementRef
+
 **PlacementRule:** Defines the target clusters for deployment
 
 #### Step 1
