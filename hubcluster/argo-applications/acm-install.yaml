@@ -15,7 +15,7 @@ spec:
         repoURL: https://github.com/Vikaspogu/acm-demo.git
         revision: main
         directories:
-          - path: hubcluster/acm/
+          - path: hubcluster/acm/install/*
   template:
     metadata:
       name: 'acm-{{path.basename}}'
@@ -23,7 +23,8 @@ spec:
       destination:
         server: "https://kubernetes.default.svc"
       project: default
-      syncPolicy: {}
+      syncPolicy:
+        automated: {}
       source:
         path: "{{path}}"
         repoURL: "https://github.com/Vikaspogu/acm-demo.git"

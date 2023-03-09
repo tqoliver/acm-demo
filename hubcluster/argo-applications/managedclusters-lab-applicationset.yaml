@@ -15,7 +15,7 @@ spec:
         repoURL: https://github.com/Vikaspogu/acm-demo.git
         revision: main
         directories:
-          - path: managedclusters/argo-applications/lab/
+          - path: managedclusters/argo-applications/lab/*
   template:
     metadata:
       name: 'managedclusters-lab-{{path.basename}}'
