@@ -34,6 +34,7 @@ Update ArgoCD instance with kustomize plugins
 
 ```bash
 oc apply -f bootstrap/argocd.yaml -n openshift-gitops
+oc adm policy add-cluster-role-to-user cluster-admin -z openshift-gitops-argocd-application-controller -n openshift-gitops
 ```
 
 #### Step 3
@@ -46,14 +47,8 @@ oc apply -f ./hubcluster/argo-applications/acm-install.yaml
 
 #### Step 4
 
-Wait for ACM installation and create a new ManagedCluster with `lab-clusterset` label
+Wait for ACM installation; create managed cluster resources via Argo application
 
-Create ManagedClusterSet to manage the earlier cluster
-
-Create ManagedClusterSetBinding to binding `clusterset` with namespace
-
-Create a Placement object matching the `clusterset` lab expression with `lab-clusterset`
-
-Create a GitOps cluster object to provide integration with the `lab-clusterset` Placement object and ArgoCD instance
-
-Create a PlacementRule with the dummy cluster as the target to manage configuration specific to that cluster
+```bash
+oc apply -f ./hubcluster/argo-applications/acm-manage-setup.yaml
+```
