@@ -20,7 +20,6 @@ With the 2.3 version of Advanced Cluster Management, a new `gitopscluster` resou
 
 **PlacementRule:** Defines the target clusters for deployment
 
-#### Step 1
 
 Manually install OpenShift GitOps operator from GUI
 
@@ -28,16 +27,13 @@ Manually install OpenShift GitOps operator from GUI
 oc wait --for=condition=Ready deployment/openshift -n openshift-gitops
 ```
 
-#### Step 2
-
-Update ArgoCD instance with kustomize plugins
+Update ArgoCD instance with kustomize plugins; Create new group `cluster-admins`
 
 ```bash
 oc apply -f bootstrap/argocd.yaml -n openshift-gitops
 oc adm policy add-cluster-role-to-user cluster-admin -z openshift-gitops-argocd-application-controller -n openshift-gitops
+oc adm policy add-cluster-role-to-group cluster-admin cluster-admins
 ```
-
-#### Step 3
 
 Create the Argo application to install ACM instance
 
@@ -45,10 +41,20 @@ Create the Argo application to install ACM instance
 oc apply -f ./hubcluster/argo-applications/acm-install.yaml
 ```
 
-#### Step 4
-
 Wait for ACM installation; create managed cluster resources via Argo application
 
 ```bash
 oc apply -f ./hubcluster/argo-applications/acm-manage-setup.yaml
+```
+
+Create and import `dummy` cluster(NOTE: this is not a functional cluster, its only for illustration)
+
+```bash
+oc apply -f ./hubcluster/import-managed-cluster/dummy/import.yaml
+```
+
+Create Managed cluster application set
+
+```bash
+oc apply -f ./hubcluster/argo-applications/managedclusters-lab-applicationset.yaml
 ```

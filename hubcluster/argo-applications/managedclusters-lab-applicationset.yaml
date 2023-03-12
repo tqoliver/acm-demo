@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: managedclusters-lab-application-set
+  name: managedclusters-application-set
   namespace: openshift-gitops
   annotations:
     argocd.argoproj.io/sync-wave: "100"
@@ -15,10 +15,10 @@ spec:
         repoURL: https://github.com/Vikaspogu/acm-demo.git
         revision: main
         directories:
-          - path: managedclusters/argo-applications/lab/*
+          - path: managedclusters/argo-applications/*
   template:
     metadata:
-      name: 'managedclusters-lab-{{path.basename}}'
+      name: 'managedclusters-{{path.basename}}'
     spec:
       destination:
         server: "https://kubernetes.default.svc"
