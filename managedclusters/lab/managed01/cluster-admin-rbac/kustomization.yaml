@@ -2,7 +2,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - ../../../base/cluster-config/cluster-rolebinding
+  - ../../../base/cluster-config/cluster-rolebindig
 
 patches:
   - target:
@@ -10,10 +10,20 @@ patches:
     patch: |-
       - op: add
         path: /metadata/name
-        value: developer-cluster-view-crb
+        value: users-cluster-view-crb
       - op: add
         path: /roleRef/name
         value: cluster-view
       - op: add
         path: /subjects/0/name
         value: security-team-group
+  - target:
+      kind: Group
+    patch: |-
+      - op: add
+        path: /metadata/name
+        value: cluster-view-group
+      - op: add
+        path: /users
+        value: 
+          - user1
