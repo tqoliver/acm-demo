@@ -1,0 +1,9 @@
+apiVersion: apps.open-cluster-management.io/v1
+kind: PlacementRule
+metadata:
+  name: managed01
+  namespace: openshift-gitops
+spec:
+  clusterSelector:
+    matchLabels:
+      name: managed01
