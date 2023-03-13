@@ -21,7 +21,7 @@ spec:
                 - path: managedclusters/lab/common/*
   template:
     metadata:
-      name: 'lab-{{name}}-{{path.basename}}'
+      name: 'lab-common-{{name}}-{{path.basename}}'
     spec:
       destination:
         server: "{{server}}"
