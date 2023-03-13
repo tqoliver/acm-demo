@@ -19,7 +19,7 @@ spec:
                 - path: managedclusters/lab/managed01/*
   template:
     metadata:
-      name: 'lab-managed01-{{name}}-{{path.basename}}'
+      name: 'lab-{{name}}-{{path.basename}}'
     spec:
       destination:
         server: "{{server}}"
