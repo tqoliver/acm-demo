@@ -1,0 +1,34 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: lab-managed01
+  namespace: openshift-gitops
+spec:
+  generators:
+    - matrix:
+        generators:
+          - clusterDecisionResource:
+              configMapRef: acm-placementrule
+              name: managed01
+              requeueAfterSeconds: 3600
+          - git:
+              repoURL: https://github.com/Vikaspogu/acm-demo.git
+              revision: main
+              directories:
+                - path: managedclusters/lab/managed01/*
+  template:
+    metadata:
+      name: 'lab-managed01-{{name}}-{{path.basename}}'
+    spec:
+      destination:
+        server: "{{server}}"
+      project: default
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+      source:
+        path: "{{path}}"
+        repoURL: "https://github.com/Vikaspogu/acm-demo.git"
+        targetRevision: "main"

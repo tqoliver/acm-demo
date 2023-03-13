@@ -4,4 +4,4 @@ kind: Kustomization
 
 resources:
   - ./lab-common.yaml
-  - ./lab-dummy.yaml
+  - ./lab-managed01.yaml

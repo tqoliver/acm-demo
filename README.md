@@ -20,7 +20,6 @@ With the 2.3 version of Advanced Cluster Management, a new `gitopscluster` resou
 
 **PlacementRule:** Defines the target clusters for deployment
 
-
 Manually install OpenShift GitOps operator from GUI
 
 ```bash
