@@ -34,22 +34,10 @@ oc adm policy add-cluster-role-to-user cluster-admin -z openshift-gitops-argocd-
 oc adm policy add-cluster-role-to-group cluster-admin cluster-admins
 ```
 
-Create the Argo application to install ACM instance
-
-```bash
-oc apply -f ./hubcluster/argo-applications/acm-install.yaml
-```
-
 Wait for ACM installation; create managed cluster resources via Argo application
 
 ```bash
 oc apply -f ./hubcluster/argo-applications/acm-manage-setup.yaml
-```
-
-Create and import `dummy` cluster(NOTE: this is not a functional cluster, its only for illustration)
-
-```bash
-oc apply -f ./hubcluster/import-managed-cluster/dummy/import.yaml
 ```
 
 Create Managed cluster application set
