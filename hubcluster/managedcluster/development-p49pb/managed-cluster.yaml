@@ -8,7 +8,7 @@ metadata:
     open-cluster-management/created-via: other
   labels:
     cloud: auto-detect
-    cluster.open-cluster-management.io/clusterset: default
+    cluster.open-cluster-management.io/clusterset: lab-clusterset
     name: development-p49pb
     vendor: OpenShift
     type: sandbox
