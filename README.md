@@ -40,6 +40,12 @@ Wait for ACM installation; create managed cluster resources via Argo application
 oc apply -f ./hubcluster/argo-applications/acm-manage-setup.yaml
 ```
 
+Create manifests to import ManagedCluster
+
+```bash
+oc apply -f ./hubcluster/argo-applications/acm-managedclusters.yaml
+```
+
 Create Managed cluster application set
 
 ```bash
