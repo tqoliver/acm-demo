@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: lab-managed01
+  name: lab-development-p49pb
   namespace: openshift-gitops
 spec:
   generators:
@@ -10,13 +10,13 @@ spec:
         generators:
           - clusterDecisionResource:
               configMapRef: acm-placementrule
-              name: managed01
+              name: development-p49pb
               requeueAfterSeconds: 3600
           - git:
               repoURL: https://github.com/Vikaspogu/acm-demo.git
               revision: main
               directories:
-                - path: managedclusters/lab/managed01/*
+                - path: managedclusters/lab/development-p49pb/*
   template:
     metadata:
       name: 'lab-{{name}}-{{path.basename}}'
