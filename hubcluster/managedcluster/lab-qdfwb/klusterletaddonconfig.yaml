@@ -2,11 +2,11 @@
 apiVersion: agent.open-cluster-management.io/v1
 kind: KlusterletAddonConfig
 metadata:
-  name: development-p49pb
-  namespace: development-p49pb
+  name: lab-qdfwb
+  namespace: lab-qdfwb
 spec:
-  clusterName: development-p49pb
-  clusterNamespace: development-p49pb
+  clusterName: lab-qdfwb
+  clusterNamespace: lab-qdfwb
   clusterLabels:
     cloud: auto-detect
     vendor: auto-detect

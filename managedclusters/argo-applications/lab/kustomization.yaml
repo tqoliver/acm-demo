@@ -4,4 +4,4 @@ kind: Kustomization
 
 resources:
   - ./lab-common.yaml
-  - ./lab-development-p49pb.yaml
+  - ./lab-lab-qdfwb.yaml

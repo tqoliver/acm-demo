@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: lab-development-p49pb
+  name: lab-lab-qdfwb
   namespace: openshift-gitops
 spec:
   generators:
@@ -10,13 +10,13 @@ spec:
         generators:
           - clusterDecisionResource:
               configMapRef: acm-placementrule
-              name: development-p49pb
+              name: lab-qdfwb
               requeueAfterSeconds: 3600
           - git:
               repoURL: https://github.com/Vikaspogu/acm-demo.git
               revision: main
               directories:
-                - path: managedclusters/lab/development-p49pb/*
+                - path: managedclusters/lab/lab-qdfwb/*
   template:
     metadata:
       name: 'lab-{{name}}-{{path.basename}}'

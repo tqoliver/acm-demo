@@ -1,9 +1,9 @@
 apiVersion: apps.open-cluster-management.io/v1
 kind: PlacementRule
 metadata:
-  name: development-p49pb
+  name: lab-qdfwb
   namespace: openshift-gitops
 spec:
   clusterSelector:
     matchLabels:
-      name: development-p49pb
+      name: lab-qdfwb

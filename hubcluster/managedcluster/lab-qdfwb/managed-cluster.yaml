@@ -9,11 +9,11 @@ metadata:
   labels:
     cloud: auto-detect
     cluster.open-cluster-management.io/clusterset: lab-clusterset
-    name: development-p49pb
+    name: lab-qdfwb
     vendor: OpenShift
     type: sandbox
     purpose: development
-  name: development-p49pb
+  name: lab-qdfwb
 spec:
   hubAcceptsClient: true
   leaseDurationSeconds: 60
