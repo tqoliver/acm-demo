@@ -1,0 +1,10 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: node-web-app-route
+  namespace: node-web-project
+spec:
+  to:
+    kind: Service
+    name: node-web-app-service
+    weight: 100
